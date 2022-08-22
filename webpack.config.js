@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const MinifyPlugin = require("babel-minify-webpack-plugin");
-const WebpackObfuscatorPlugin = require('webpack-obfuscator');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 module.exports = {
@@ -21,14 +20,13 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.js']
     },
     output: {
-        filename: 'project.js',
+        filename: 'nitroforms.js',
         path: path.resolve(__dirname, 'dist'),
         libraryTarget: 'umd',
         umdNamedDefine: true
     },
     plugins: [
         new LodashModuleReplacementPlugin(),
-        new MinifyPlugin({}, {}),
-		new WebpackObfuscatorPlugin ()
+        new MinifyPlugin({}, {})
     ]
 };
